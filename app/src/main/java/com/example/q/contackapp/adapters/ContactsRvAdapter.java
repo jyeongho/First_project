@@ -9,14 +9,20 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.q.contackapp.R;
+import com.example.q.contackapp.models.ModelCalls;
+
+import java.util.List;
 
 public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.ViewHolder>{
 
     private LayoutInflater layoutInflater;
     private Context mContext;
 
-    public ContactsRvAdapter(Context context) {
+    private List<ModelCalls> mlistCalls;
+
+    public ContactsRvAdapter(Context context, List<ModelCalls> listCalls) {
         mContext = context;
+        mlistCalls = listCalls;
     }
 
     @Override
@@ -36,6 +42,10 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
         name = holder.name;
         duration = holder.duration;
         date = holder.date;
+
+        name.setText(mlistCalls.get(position).getNumber());
+        duration.setText(mlistCalls.get(position).getDuration());
+        date.setText(mlistCalls.get(position).getDate());
     }
 
     @Override
