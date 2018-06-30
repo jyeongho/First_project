@@ -32,10 +32,10 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        TextView name, house, phone;
+        TextView name, duration, date;
         name = holder.name;
-        house = holder.house;
-        phone = holder.phone;
+        duration = holder.duration;
+        date = holder.date;
     }
 
     @Override
@@ -44,13 +44,13 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, house, phone;
+        TextView name, duration, date;
         public ViewHolder(View itemView) {
             super(itemView);
 
-            name = itemView.findViewById(R.id.name);
-            house = itemView.findViewById(R.id.house);
-            phone = itemView.findViewById(R.id.phone);
+            name = itemView.findViewById(R.id.contact_name);
+            duration = itemView.findViewById(R.id.call_duration);
+            date = itemView.findViewById(R.id.call_date);
         }
     }
 }
