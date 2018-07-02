@@ -53,15 +53,37 @@ public class FragmentContacts extends Fragment {
 
         List<ModelContacts> list = new ArrayList<>();
 
-        Cursor cursor = getContext().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                null, null, null, ContactsContract.Contacts.DISPLAY_NAME + " ASC");
+        Cursor cursor = getContext().getContentResolver().query(ContactsContract.Contacts.CONTENT_URI,
+                null, null, null, null);
+
+        int ididx = cursor.getColumnIndex(ContactsContract.Contacts._ID);
+        int nameidx = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
 
         cursor.moveToFirst();
-
         while (cursor.moveToNext()) {
 
+            String id = cursor.getString(ididx);
+            Cursor cursor2 = getContext().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null,
+                    ContactsContract.CommonDataKinds.Phone.CONTACT_ID + "=?", new String[]{id}, null);
+
+            int typeidx = cursor2.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE);
+            int numidx = cursor2.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            String mobile = null;
+            String home = null;
+            while(cursor2.moveToNext()) {
+                String num = cursor2.getString(numidx);
+                switch ( cursor2.getInt(typeidx)) {
+                    case ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE:
+                        mobile = num;
+                        break;
+                    case ContactsContract.CommonDataKinds.Phone.TYPE_HOME:
+                        home = num;
+                        break;
+                }
+            }
+
             list.add(new ModelContacts(cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)),
-                    cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER)), cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS))));
+                    mobile, home));
 
 
         }
