@@ -11,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.q.contackapp.R;
+import com.example.q.contackapp.adapters.ContactsRvAdapter;
+import com.example.q.contackapp.models.ModelContacts;
+
+import java.util.List;
 
 public class FragmentContacts extends Fragment {
 
@@ -31,6 +35,13 @@ public class FragmentContacts extends Fragment {
         RecyclerView.LayoutManager layoutManager = linearLayoutManager;
         recyclerView.setLayoutManager(layoutManager);
 
+        ContactsRvAdapter adapter = new ContactsRvAdapter(getContext(), null);
+
         return v;
+    }
+
+    private List<ModelContacts> getContactLogs() {
+
+        return null;
     }
 }
