@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
-        adapter.addFragment(new FragmentCalls(), "Calls");
         adapter.addFragment(new FragmentContacts(), "Contacts");
+        adapter.addFragment(new FragmentCalls(), "Calls");
         adapter.addFragment(new FragmentFav(), "Fav");
         //adapter.addFragment(new FragmentGallery(), "Gallery");
 
