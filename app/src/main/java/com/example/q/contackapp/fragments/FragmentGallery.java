@@ -19,7 +19,7 @@ public class FragmentGallery extends Fragment {
     private View v;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
-    private int[] images = {R.drawable.pic1};
+    private int[] images = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3};
 
     public FragmentGallery() {
     }

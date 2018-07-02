@@ -9,10 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
-import android.widget.EditText;
-
 import com.example.q.contackapp.adapters.ViewPagerAdapter;
-import com.example.q.contackapp.fragments.FragmentCalls;
 import com.example.q.contackapp.fragments.FragmentContacts;
 import com.example.q.contackapp.fragments.FragmentFav;
 import com.example.q.contackapp.fragments.FragmentGallery;
