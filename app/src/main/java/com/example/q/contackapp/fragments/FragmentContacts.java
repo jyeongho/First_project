@@ -59,7 +59,6 @@ public class FragmentContacts extends Fragment {
         int ididx = cursor.getColumnIndex(ContactsContract.Contacts._ID);
         int nameidx = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
 
-        cursor.moveToFirst();
         while (cursor.moveToNext()) {
 
             String id = cursor.getString(ididx);
