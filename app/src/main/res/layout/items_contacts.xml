@@ -6,8 +6,8 @@
     android:background="@color/colorPrimary"
     android:layout_margin="10dp"
     android:weightSum="10"
-    android:clickable="true"
-    android:focusable="true">
+    android:id="@+id/main_bar"
+    android:onClick="">
 
     <Button
         android:layout_gravity="center"

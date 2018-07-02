@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.adapters.ContactsRvAdapter;
@@ -21,6 +24,7 @@ import java.util.List;
 public class FragmentContacts extends Fragment {
 
     private View v;
+    private View v2;
 
     private RecyclerView recyclerView;
 
@@ -32,6 +36,7 @@ public class FragmentContacts extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         v = inflater.inflate(R.layout.frag_contacts, container, false);
+        v2 = inflater.inflate(R.layout.items_contacts, container, false);
 
         recyclerView = v.findViewById(R.id.rv_contacts);
 
@@ -44,6 +49,19 @@ public class FragmentContacts extends Fragment {
         ContactsRvAdapter adapter = new ContactsRvAdapter(getContext(), getContacts());
 
         recyclerView.setAdapter(adapter);
+
+        LinearLayout linearLayout = v2.findViewById(R.id.main_bar);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new FragmentContactsCall();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.main_bar, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
 
         return v;
