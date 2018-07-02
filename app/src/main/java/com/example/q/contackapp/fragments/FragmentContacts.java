@@ -18,30 +18,17 @@ import java.util.List;
 
 public class FragmentContacts extends Fragment {
 
-    private RecyclerView recyclerView;
     private View v;
 
     public FragmentContacts() {
-
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         v = inflater.inflate(R.layout.frag_contacts, container, false);
-        recyclerView = v.findViewById(R.id.rv_calls);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        RecyclerView.LayoutManager layoutManager = linearLayoutManager;
-        recyclerView.setLayoutManager(layoutManager);
-
-        ContactsRvAdapter adapter = new ContactsRvAdapter(getContext(), null);
-
         return v;
     }
 
-    private List<ModelContacts> getContactLogs() {
-
-        return null;
-    }
 }

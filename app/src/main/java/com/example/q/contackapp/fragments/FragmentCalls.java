@@ -35,7 +35,7 @@ public class FragmentCalls extends Fragment {
         RecyclerView.LayoutManager layoutManager = linearLayoutManager;
         recyclerView.setLayoutManager(layoutManager);
 
-        ContactsRvAdapter adapter = new ContactsRvAdapter(getContext(), null);
+        CallsRvAdapter adapter = new CallsRvAdapter(getContext(), null);
 
         return v;
     }
