@@ -7,29 +7,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.q.contackapp.R;
-import com.example.q.contackapp.models.ModelCalls;
+import com.example.q.contackapp.models.ModelContacts;
 
 import java.util.List;
 
 public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.ViewHolder>{
 
-    private LayoutInflater layoutInflater;
     private Context mContext;
+    private LayoutInflater inflater;
+    private List<ModelContacts> mlistContacts;
 
-    private List<ModelCalls> mlistCalls;
-
-    public ContactsRvAdapter(Context context, List<ModelCalls> listCalls) {
+    public ContactsRvAdapter(Context context, List<ModelContacts> listContacts) {
         mContext = context;
-        mlistCalls = listCalls;
+        mlistContacts = listContacts;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        layoutInflater = LayoutInflater.from(mContext);
+        inflater = LayoutInflater.from(mContext);
 
-        View view = layoutInflater.inflate(R.layout.item_calls, parent, false);
+        View view = inflater.inflate(R.layout.items_contacts, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(view);
 
@@ -38,29 +36,26 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        TextView name, duration, date;
-        name = holder.name;
-        duration = holder.duration;
-        date = holder.date;
+        TextView contact_name, contact_number;
+        contact_name = holder.contact_name;
+        contact_number = holder.contact_number;
 
-        name.setText(mlistCalls.get(position).getNumber());
-        duration.setText(mlistCalls.get(position).getDuration());
-        date.setText(mlistCalls.get(position).getDate());
+        contact_name.setText(mlistContacts.get(position).getName());
+        contact_number.setText(mlistContacts.get(position).getNumber());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mlistContacts.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView name, duration, date;
+        TextView contact_name, contact_number;
         public ViewHolder(View itemView) {
             super(itemView);
 
-            name = itemView.findViewById(R.id.contact_name);
-            duration = itemView.findViewById(R.id.call_duration);
-            date = itemView.findViewById(R.id.call_date);
+            contact_name = itemView.findViewById(R.id.contact_name);
+            contact_number = itemView.findViewById(R.id.contact_number);
         }
     }
 }
