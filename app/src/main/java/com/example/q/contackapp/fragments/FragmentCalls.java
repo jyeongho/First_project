@@ -34,7 +34,7 @@ public class FragmentCalls extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.frag_contacts, container, false);
+        v = inflater.inflate(R.layout.frag_calls, container, false);
         recyclerView = v.findViewById(R.id.rv_calls);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
