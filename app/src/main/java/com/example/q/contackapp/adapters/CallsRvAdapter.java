@@ -60,8 +60,8 @@ public class CallsRvAdapter extends RecyclerView.Adapter<CallsRvAdapter.ViewHold
             super(itemView);
 
             name = itemView.findViewById(R.id.contact_name);
-            duration = itemView.findViewById(R.id.call_duration);
-            date = itemView.findViewById(R.id.call_date);
+            //duration = itemView.findViewById(R.id.call_duration);
+            //date = itemView.findViewById(R.id.call_date);
         }
     }
 }
