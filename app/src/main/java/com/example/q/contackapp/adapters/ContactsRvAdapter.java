@@ -16,11 +16,11 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
 
     private Context mContext;
     private LayoutInflater inflater;
-    private List<ModelContacts> mlistContacts;
+    private List<ModelContacts> mListContacts;
 
     public ContactsRvAdapter(Context context, List<ModelContacts> listContacts) {
         mContext = context;
-        mlistContacts = listContacts;
+        mListContacts = listContacts;
     }
 
     @Override
@@ -40,13 +40,13 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
         contact_name = holder.contact_name;
         contact_number = holder.contact_number;
 
-        contact_name.setText(mlistContacts.get(position).getName());
-        contact_number.setText(mlistContacts.get(position).getNumber());
+        contact_name.setText(mListContacts.get(position).getName());
+        contact_number.setText(mListContacts.get(position).getNumber());
     }
 
     @Override
     public int getItemCount() {
-        return mlistContacts.size();
+        return mListContacts.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
