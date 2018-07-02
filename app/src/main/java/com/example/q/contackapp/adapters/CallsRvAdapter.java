@@ -43,7 +43,7 @@ public class CallsRvAdapter extends RecyclerView.Adapter<CallsRvAdapter.ViewHold
             duration = holder.duration;
             date = holder.date;
 
-            name.setText(mlistCalls.get(position).getName());
+            name.setText(mlistCalls.get(position).getNumber());
             duration.setText(mlistCalls.get(position).getDuration());
             date.setText(mlistCalls.get(position).getDate());
     }
