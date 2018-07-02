@@ -16,11 +16,11 @@ public class CallsRvAdapter extends RecyclerView.Adapter<CallsRvAdapter.ViewHold
     private LayoutInflater layoutInflater;
     private Context mContext;
 
-    private List<ModelCalls> mlistCalls;
+    private List<ModelCalls> mListCalls;
 
     public CallsRvAdapter(Context context, List<ModelCalls> listCalls) {
         mContext = context;
-        mlistCalls = listCalls;
+        mListCalls = listCalls;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -43,14 +43,14 @@ public class CallsRvAdapter extends RecyclerView.Adapter<CallsRvAdapter.ViewHold
             duration = holder.duration;
             date = holder.date;
 
-            name.setText(mlistCalls.get(position).getNumber());
-            duration.setText(mlistCalls.get(position).getDuration());
-            date.setText(mlistCalls.get(position).getDate());
+            name.setText(mListCalls.get(position).getNumber());
+            duration.setText(mListCalls.get(position).getDuration());
+            date.setText(mListCalls.get(position).getDate());
     }
 
     @Override
     public int getItemCount() {
-        return mlistCalls.size();
+        return mListCalls.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
