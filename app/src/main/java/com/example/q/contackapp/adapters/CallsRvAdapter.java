@@ -43,14 +43,14 @@ public class CallsRvAdapter extends RecyclerView.Adapter<CallsRvAdapter.ViewHold
             duration = holder.duration;
             date = holder.date;
 
-            name.setText(mlistCalls, get(position).getName());
-            duration.setText(mlistCalls, get(position).getDuration());
-            date.setText(mlistCalls, get(position).getDate());
+            name.setText(mlistCalls.get(position).getName());
+            duration.setText(mlistCalls.get(position).getDuration());
+            date.setText(mlistCalls.get(position).getDate());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mlistCalls.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
