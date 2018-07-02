@@ -20,14 +20,27 @@ public class FragmentContacts extends Fragment {
 
     private View v;
 
+    private RecyclerView recyclerView;
+
     public FragmentContacts() {
     }
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         v = inflater.inflate(R.layout.frag_contacts, container, false);
+
+        recyclerView = v.findViewById(R.id.rv_contacts);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+
+        RecyclerView.LayoutManager layoutManager = linearLayoutManager;
+
+        recyclerView.setLayoutManager(layoutManager);
+
+
+
         return v;
     }
 

@@ -26,6 +26,7 @@ import com.example.q.contackapp.adapters.CallsRvAdapter;
 import com.example.q.contackapp.models.ModelCalls;
 import com.example.q.contackapp.models.ModelContacts;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -69,14 +70,21 @@ public class FragmentCalls extends Fragment {
 
         int number = cursor.getColumnIndex(CallLog.Calls.NUMBER);
         int duration = cursor.getColumnIndex(CallLog.Calls.DURATION);
-        int date = cursor.getColumnIndex(CallLog.Calls.DATE);
+        int date_idx = cursor.getColumnIndex(CallLog.Calls.DATE);
 
         cursor.moveToFirst();
         while (cursor.moveToNext()) {
 
-            Date date1 = new Date(Long.valueOf(cursor.getString(date)));
+            Date date = new Date(Long.valueOf(cursor.getString(date_idx)));
 
-            list.add(new ModelCalls(cursor.getString(number), cursor.getString(duration), date1.toString()));
+            String mnth_date,week_day,month;
+
+            String.format(mnth_date = "dd", date);
+            String.format(week_day = "EEEE", date);
+            String.format(month = "MMMM", date);
+
+            list.add(new ModelCalls(cursor.getString(number), cursor.getString(duration),
+                    week_day + " "  + mnth_date + " " + month));
 
             Log.d("MiC: : ", cursor.getString(number));
         }
