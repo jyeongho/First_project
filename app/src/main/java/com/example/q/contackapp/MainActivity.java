@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void askPermissions() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, String[](Manifest.permission.READ_CONTACTS), 1);
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CONTACTS}, 1);
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CALL_LOG}, 1);
         }
     }
 
