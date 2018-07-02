@@ -76,7 +76,7 @@ public class FragmentCalls extends Fragment {
 
             Date date1 = new Date(Long.valueOf(cursor.getString(date)));
 
-            list.add(new ModelCalls(cursor.getString(number), cursor.getString(duration), date1.toString());
+            list.add(new ModelCalls(cursor.getString(number), cursor.getString(duration), date1.toString()));
 
             Log.d("MiC: : ", cursor.getString(number));
         }
