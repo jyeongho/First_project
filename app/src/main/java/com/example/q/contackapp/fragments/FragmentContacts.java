@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -17,7 +16,6 @@ import com.example.q.contackapp.adapters.ContactsRvAdapter;
 import com.example.q.contackapp.models.ModelContacts;
 
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
 
 public class FragmentContacts extends Fragment {

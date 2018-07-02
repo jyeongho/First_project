@@ -1,20 +1,15 @@
 package com.example.q.contackapp.fragments;
 
-import android.Manifest;
 import android.Manifest.permission;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,11 +17,7 @@ import android.view.ViewGroup;
 
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.adapters.CallsRvAdapter;
-//import com.example.q.contackapp.adapters.ContactsRvAdapter;
 import com.example.q.contackapp.models.ModelCalls;
-import com.example.q.contackapp.models.ModelContacts;
-
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
