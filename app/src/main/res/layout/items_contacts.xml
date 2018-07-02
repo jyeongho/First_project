@@ -9,7 +9,7 @@
 
     <Button
         android:layout_gravity="center"
-        android:background="@drawable/ic_launcher_foreground"
+        android:background="@drawable/human4"
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="32dp" />
