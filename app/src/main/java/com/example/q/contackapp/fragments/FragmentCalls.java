@@ -15,6 +15,7 @@ import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.telecom.Call;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import com.example.q.contackapp.models.ModelCalls;
 import com.example.q.contackapp.models.ModelContacts;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FragmentCalls extends Fragment {
@@ -71,7 +73,12 @@ public class FragmentCalls extends Fragment {
 
         cursor.moveToFirst();
         while (cursor.moveToNext()) {
-            list.add(new ModelCalls(cursor.getString(number), cursor.getString(duration), cursor.getString(date)));
+
+            Date date1 = new Date(Long.valueOf(cursor.getString(date)));
+
+            list.add(new ModelCalls(cursor.getString(number), cursor.getString(duration), date1.toString());
+
+            Log.d("MiC: : ", cursor.getString(number));
         }
 
         return list;
