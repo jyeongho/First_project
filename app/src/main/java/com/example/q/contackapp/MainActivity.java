@@ -2,18 +2,16 @@ package com.example.q.contackapp;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
 
 import com.example.q.contackapp.adapters.ViewPagerAdapter;
 import com.example.q.contackapp.fragments.FragmentContacts;
-import com.example.q.contackapp.fragments.FragmentFav;
 import com.example.q.contackapp.fragments.FragmentGallery;
+import com.example.q.contackapp.fragments.FragmentLoadInsta;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         adapter.addFragment(new FragmentContacts(), "Contacts");
         adapter.addFragment(new FragmentGallery(), "Gallery");
-        adapter.addFragment(new FragmentFav(), "Fav");
+        adapter.addFragment(new FragmentLoadInsta(), "Instagram");
         //adapter.addFragment(new FragmentGallery(), "Gallery");
 
         viewPager.setAdapter(adapter);

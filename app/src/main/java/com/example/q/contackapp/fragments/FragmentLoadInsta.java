@@ -9,21 +9,17 @@ import android.view.ViewGroup;
 
 import com.example.q.contackapp.R;
 
-
-public class FragmentFav extends Fragment {
-
+public class FragmentLoadInsta extends Fragment{
     private View v;
 
-    public FragmentFav() {
-
+    public FragmentLoadInsta() {
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        v = inflater.inflate(R.layout.frag_contacts, container, false);
+        v = inflater.inflate(R.layout.insta_loading, container, false);
         return v;
     }
-
 }
