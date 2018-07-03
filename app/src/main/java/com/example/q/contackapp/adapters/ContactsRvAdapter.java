@@ -1,6 +1,7 @@
 package com.example.q.contackapp.adapters;
 
 import android.app.Activity;
+import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.q.contackapp.MainActivity;
@@ -41,7 +43,7 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        TextView contact_name, contact_number, contact_number2;
+        final TextView contact_name, contact_number, contact_number2;
         contact_name = holder.contact_name;
         contact_number = holder.contact_number;
         contact_number2 = holder.contact_number2;
@@ -50,6 +52,22 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
         contact_number.setText(mListContacts.get(position).getNumber());
         contact_number2.setText(mListContacts.get(position).getNumber2());
 
+        holder.itemView.setClickable(true);
+        holder.itemView.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new FragmentContactsCall();
+                Bundle bundle = new Bundle(3);
+                bundle.putString("contact_name", contact_name.getText().toString());
+                bundle.putString("contact_number", contact_number.getText().toString());
+                bundle.putString("contact_number2", contact_number2.getText().toString());
+                fragment.setArguments(bundle);
+                FragmentManager fragmentManager = ((MainActivity) mContext).getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.linear_rv, fragment).commit();
+
+            }
+        });
     }
 
     @Override
@@ -57,7 +75,7 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
         return mListContacts.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder {
         TextView contact_name, contact_number, contact_number2;
         public ViewHolder(View itemView) {
             super(itemView);
@@ -65,17 +83,8 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
             contact_number = itemView.findViewById(R.id.contact_number);
             contact_number2 = itemView.findViewById(R.id.contact_number2);
 
-            itemView.setClickable(true);
-            itemView.setOnClickListener(this);
-        }
-
-        @Override
-        public void onClick(View view) {
-            Fragment fragment = new FragmentContactsCall();
-            FragmentManager fragmentManager = ((MainActivity)mContext).getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.linear_rv, fragment).commit();
+    }
 
 
-        }
     }
 }

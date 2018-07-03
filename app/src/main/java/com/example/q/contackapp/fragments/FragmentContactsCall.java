@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.adapters.ContactsCallRvAdapter;
@@ -38,7 +39,18 @@ public class FragmentContactsCall extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
+        String contact_name = getArguments().getString("contact_name");
+        String contact_number = getArguments().getString("contact_number");
+        String contact_number2 = getArguments().getString("contact_number2");
         v = inflater.inflate(R.layout.contacts_call_log, container, false);
+
+        TextView contact_call_name = v.findViewById(R.id.contact_call_name);
+        TextView contact_call_number = v.findViewById(R.id.contact_call_number);
+        TextView contact_call_number2 = v.findViewById(R.id.contact_call_number2);
+
+        contact_call_name.setText(contact_name);
+        contact_call_number.setText(contact_number);
+        contact_call_number2.setText(contact_number2);
 
         recyclerView = v.findViewById(R.id.rv_contacts_call);
 
