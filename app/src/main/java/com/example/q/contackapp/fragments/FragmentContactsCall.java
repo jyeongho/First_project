@@ -58,13 +58,13 @@ public class FragmentContactsCall extends Fragment {
         RecyclerView.LayoutManager layoutManager = linearLayoutManager;
         recyclerView.setLayoutManager(layoutManager);
 
-        ContactsCallRvAdapter adapter = new ContactsCallRvAdapter(getContext(), getCallLogs());
+        ContactsCallRvAdapter adapter = new ContactsCallRvAdapter(getContext(), getCallLogs(contact_call_number.getText().toString(),contact_call_number2.getText().toString() ));
 
         recyclerView.setAdapter(adapter);
         return v;
     }
 
-    private List<ModelContactsCall> getCallLogs() {
+    private List<ModelContactsCall> getCallLogs(String string1, String string2) {
 
         List<ModelContactsCall> list = new ArrayList<>();
 
@@ -76,12 +76,24 @@ public class FragmentContactsCall extends Fragment {
 
         int duration = cursor.getColumnIndex(CallLog.Calls.DURATION);
         int date = cursor.getColumnIndex(CallLog.Calls.DATE);
+        int number = cursor.getColumnIndex(CallLog.Calls.NUMBER);
+
+        string1 = string1.replaceAll("-","");
+        string1 = string1.replaceAll("\\(","");
+        string1 = string1.replaceAll("\\)","");
+        string1 = string1.replaceAll(" ","");
+        string1 = string1.trim();
+        string2 = string2.replaceAll("-","");
+        string2 = string2.replaceAll("\\(","");
+        string2 = string2.replaceAll("\\)","");
+        string2 = string2.replaceAll(" ","");
+        string2 = string2.trim();
 
         while (cursor.moveToNext()) {
-
-            Date datel = new Date(Long.valueOf(cursor.getString(date)));
-            list.add(new ModelContactsCall(cursor.getString(duration), datel.toString()));
-
+            if (cursor.getString(number).equals(string1) || cursor.getString(number).equals(string2)) {
+                Date datel = new Date(Long.valueOf(cursor.getString(date)));
+                list.add(new ModelContactsCall(cursor.getString(duration), datel.toString()));
+            }
         }
         return list;
     }

@@ -40,7 +40,7 @@
             android:layout_alignParentTop="true"
             android:text="date"
             android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textSize="0sp" />
 
     </RelativeLayout>
 
