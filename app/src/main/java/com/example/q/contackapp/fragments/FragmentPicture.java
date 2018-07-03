@@ -1,19 +1,22 @@
 package com.example.q.contackapp.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.q.contackapp.MainActivity;
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.adapters.RecyclerPicAdapter;
 
-public class FragmentPicture extends Fragment {
+public class FragmentPicture extends Fragment implements MainActivity.OnBackPressedListener {
     private View v;
 
 
@@ -46,5 +49,21 @@ public class FragmentPicture extends Fragment {
         recyclerView.setAdapter(adapter);
 */
         return v;
+    }
+    @Override
+    public void onBack() {
+        Log.e("Other", "onBack()");
+        MainActivity activity = (MainActivity)getActivity();
+        // 한번 뒤로가기 버튼을 눌렀다면 Listener 를 null 로 해제해줍니다.
+        activity.setOnBackPressedListener(null);
+        // MainFragment 로 교체
+        getFragmentManager().popBackStack();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.e("Other", "onAttach()");
+        ((MainActivity)context).setOnBackPressedListener(this);
     }
 }

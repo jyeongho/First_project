@@ -58,7 +58,10 @@ public class RecyclerPicAdapter extends RecyclerView.Adapter<RecyclerPicAdapter.
                 fragment.setArguments(bundle);
 
                 FragmentManager fragmentManager = ((MainActivity)mContext).getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.frag_gallery, fragment).commit();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frag_gallery, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
                 //holder.Album.setImageResource(image_id);
                 //holder.pic_name.setText("Image :" + position);
             }

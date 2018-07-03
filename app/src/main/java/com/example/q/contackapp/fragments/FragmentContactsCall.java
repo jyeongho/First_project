@@ -103,7 +103,6 @@ public class FragmentContactsCall extends Fragment implements MainActivity.OnBac
         return list;
     }
 
-    FragmentContacts fragmentContacts = new FragmentContacts();
     @Override
     public void onBack() {
         Log.e("Other", "onBack()");
