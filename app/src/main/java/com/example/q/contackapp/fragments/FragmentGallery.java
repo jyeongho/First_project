@@ -3,11 +3,15 @@ package com.example.q.contackapp.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.GridLayout;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.adapters.RecyclerPicAdapter;
@@ -20,6 +24,7 @@ public class FragmentGallery extends Fragment {
     private int[] images = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4,
             R.drawable.pic5, R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic9
             , R.drawable.pic10, R.drawable.pic11, R.drawable.pic12, R.drawable.pic13};
+
 
     public FragmentGallery() {
     }
@@ -35,11 +40,13 @@ public class FragmentGallery extends Fragment {
 
         recyclerView.setLayoutManager(layoutManager);
 
-        RecyclerPicAdapter adapter = new RecyclerPicAdapter(images);
+        RecyclerPicAdapter adapter = new RecyclerPicAdapter(images, getContext());
 
         recyclerView.setAdapter(adapter);
 
         return v;
+
+
     }
 
 }
