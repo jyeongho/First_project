@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -102,7 +103,7 @@ public class FragmentContactsCall extends Fragment implements MainActivity.OnBac
         return list;
     }
 
-    FragmentContacts mainFragment = new FragmentContacts();
+    FragmentContacts fragmentContacts = new FragmentContacts();
     @Override
     public void onBack() {
         Log.e("Other", "onBack()");
@@ -110,7 +111,7 @@ public class FragmentContactsCall extends Fragment implements MainActivity.OnBac
         // 한번 뒤로가기 버튼을 눌렀다면 Listener 를 null 로 해제해줍니다.
         activity.setOnBackPressedListener(null);
         // MainFragment 로 교체
-       getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contacts_call, mainFragment).commit();
+        getFragmentManager().popBackStack();
     }
 
     @Override

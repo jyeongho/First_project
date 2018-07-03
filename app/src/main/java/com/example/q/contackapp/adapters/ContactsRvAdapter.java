@@ -64,7 +64,10 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
                 bundle.putString("contact_number2", contact_number2.getText().toString());
                 fragment.setArguments(bundle);
                 FragmentManager fragmentManager = ((MainActivity) mContext).getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.linear_rv, fragment).commit();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.linear_rv, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
 
             }
         });
