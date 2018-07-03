@@ -23,7 +23,7 @@ public class BottomNavigationViewHelper {
         Log.d(TAG, "setupBottomNavigationView: Setting up BottomNavigationView");
         bottomNavigationViewEx.enableAnimation(false);
         bottomNavigationViewEx.enableItemShiftingMode(false);
-        bottomNavigationViewEx.enableItemShiftingMode(false);
+        bottomNavigationViewEx.enableShiftingMode(false);
         bottomNavigationViewEx.setTextVisibility(false);
 
     }
