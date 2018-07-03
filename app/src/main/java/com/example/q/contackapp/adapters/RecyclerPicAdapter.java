@@ -41,19 +41,21 @@ public class RecyclerPicAdapter extends RecyclerView.Adapter<RecyclerPicAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
-        int image_id = this.images[position];
+    public void onBindViewHolder(@NonNull final ImageViewHolder holder, final int position) {
+        final int image_id = this.images[position];
         holder.Album.setImageResource(image_id);
-        holder.AlbumTitle.setText("Image :" + position);
+        holder.AlbumTitle.setText("Image: " + position);
 
-//        holder.Album.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(mContext, PictureActivity.class);
-//                Intent image_url = intent.putExtra("image_url", images[position]);
-//                mContext.startActivity(intent);
-//            }
-//        });
+        holder.Album.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment = new FragmentPicture();
+                FragmentManager fragmentManager = ((MainActivity)mContext).getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.frag_gallery, fragment).commit();
+                //holder.Album.setImageResource(image_id);
+                //holder.pic_name.setText("Image :" + position);
+            }
+        });
 
     }
 
@@ -63,7 +65,7 @@ public class RecyclerPicAdapter extends RecyclerView.Adapter<RecyclerPicAdapter.
     }
 
 
-    public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    public class ImageViewHolder extends RecyclerView.ViewHolder //implements View.OnClickListener
     {
 
         ImageView Album;
@@ -74,15 +76,15 @@ public class RecyclerPicAdapter extends RecyclerView.Adapter<RecyclerPicAdapter.
             super(itemView);
             Album = itemView.findViewById(R.id.album);
             AlbumTitle = itemView.findViewById(R.id.album_title);
-            itemView.setClickable(true);
-            itemView.setOnClickListener(this);
+            //itemView.setClickable(true);
+            //itemView.setOnClickListener(this);
         }
 
-        @Override
-        public void onClick(View view) {
+        //@Override
+        /*public void onClick(View view) {
             Fragment fragment = new FragmentPicture();
             FragmentManager fragmentManager = ((MainActivity)mContext).getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.frag_gallery, fragment).commit();
-        }
+        }*/
     }
 }
