@@ -2,6 +2,7 @@ package com.example.q.contackapp.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.q.contackapp.MainActivity;
-import com.example.q.contackapp.PictureActivity;
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.fragments.FragmentContactsCall;
 import com.example.q.contackapp.fragments.FragmentPicture;
@@ -41,8 +41,9 @@ public class RecyclerPicAdapter extends RecyclerView.Adapter<RecyclerPicAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ImageViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ImageViewHolder holder,final int position) {
         final int image_id = this.images[position];
+
         holder.Album.setImageResource(image_id);
         holder.AlbumTitle.setText("Image: " + position);
 
@@ -50,6 +51,12 @@ public class RecyclerPicAdapter extends RecyclerView.Adapter<RecyclerPicAdapter.
             @Override
             public void onClick(View view) {
                 Fragment fragment = new FragmentPicture();
+
+                Bundle bundle = new Bundle(3);
+                bundle.putInt("image_id", image_id);
+                bundle.putString("pic_name", Integer.toString(position));
+                fragment.setArguments(bundle);
+
                 FragmentManager fragmentManager = ((MainActivity)mContext).getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.frag_gallery, fragment).commit();
                 //holder.Album.setImageResource(image_id);

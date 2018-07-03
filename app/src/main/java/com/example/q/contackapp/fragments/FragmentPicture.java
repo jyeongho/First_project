@@ -8,17 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.q.contackapp.R;
-import com.example.q.contackapp.adapters.ImageViewAdapter;
 import com.example.q.contackapp.adapters.RecyclerPicAdapter;
 
 public class FragmentPicture extends Fragment {
     private View v;
-    private RecyclerView recyclerView;
-    private int[] images = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4,
-            R.drawable.pic5, R.drawable.pic6, R.drawable.pic7, R.drawable.pic8, R.drawable.pic9
-            , R.drawable.pic10, R.drawable.pic11, R.drawable.pic12, R.drawable.pic13};
+
 
     public FragmentPicture() {
 
@@ -28,7 +25,20 @@ public class FragmentPicture extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+
+        int image_id = getArguments().getInt("image_id");
+        String pic_name = getArguments().getString("pic_name");
         v = inflater.inflate(R.layout.activity_gallery, container, false);
+
+        ImageView image = v.findViewById(R.id.imageView);
+        TextView name = v.findViewById(R.id.pic_name);
+
+        image.setImageResource(image_id);
+        name.setText(pic_name);
+
+
+
+
      /*   recyclerView = v.findViewById(R.id.recyclerView);
 
         ImageViewAdapter adapter = new ImageViewAdapter(images, getContext());
