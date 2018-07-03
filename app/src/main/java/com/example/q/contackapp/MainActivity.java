@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onClick(View view) {
+    public void changeActivity(View view) {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
