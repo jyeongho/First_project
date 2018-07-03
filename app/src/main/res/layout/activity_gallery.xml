@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:weightSum="10"
     android:layout_margin="0dp"
+    android:clickable="true"
     android:id="@+id/bigPicture">
 
 
@@ -14,7 +15,7 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="365sp"
-        app:srcCompat="@drawable/pic4"/>
+        app:srcCompat="@drawable/pic4" />
 
     <TextView
         android:id="@+id/pic_name"
