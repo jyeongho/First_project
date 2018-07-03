@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout tabLayout;
     private ViewPager viewPager;
 
-    private final int[] ICONS = {R.drawable.human4, R.drawable.galleryicon, R.drawable.ic_launcher_foreground};
+    private final int[] ICONS = {R.drawable.human4, R.drawable.galleryicon, R.drawable.instagram};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
