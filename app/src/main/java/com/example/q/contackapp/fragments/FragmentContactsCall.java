@@ -1,6 +1,7 @@
 package com.example.q.contackapp.fragments;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -9,15 +10,18 @@ import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.q.contackapp.MainActivity;
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.adapters.ContactsCallRvAdapter;
 import com.example.q.contackapp.adapters.ContactsRvAdapter;
@@ -28,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class FragmentContactsCall extends Fragment {
+public class FragmentContactsCall extends Fragment implements MainActivity.OnBackPressedListener {
     private View v;
     private RecyclerView recyclerView;
 
@@ -96,5 +100,23 @@ public class FragmentContactsCall extends Fragment {
             }
         }
         return list;
+    }
+
+    FragmentContacts mainFragment = new FragmentContacts();
+    @Override
+    public void onBack() {
+        Log.e("Other", "onBack()");
+        MainActivity activity = (MainActivity)getActivity();
+        // 한번 뒤로가기 버튼을 눌렀다면 Listener 를 null 로 해제해줍니다.
+        activity.setOnBackPressedListener(null);
+        // MainFragment 로 교체
+       getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contacts_call, mainFragment).commit();
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.e("Other", "onAttach()");
+        ((MainActivity)context).setOnBackPressedListener(this);
     }
 }

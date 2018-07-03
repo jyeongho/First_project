@@ -3,10 +3,12 @@ package com.example.q.contackapp;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.q.contackapp.adapters.ViewPagerAdapter;
 import com.example.q.contackapp.fragments.FragmentContacts;
@@ -58,5 +60,43 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.READ_CALL_LOG}, 1);
         }
     }
+    private long pressedTime = 0;
+    public interface OnBackPressedListener {
+        public void onBack();
+    }
+    private OnBackPressedListener mBackListener;
 
+    public void setOnBackPressedListener(OnBackPressedListener listener) {
+        mBackListener =listener;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mBackListener != null) {
+            mBackListener.onBack();
+            Log.e("!!!", "Listener is not null");
+        } else {
+            Log.e("!!!", "Listener is null");
+            if ( pressedTime == 0 ) {
+                Snackbar.make(findViewById(R.id.main_layout),
+                        " 한 번 더 누르면 종료됩니다." , Snackbar.LENGTH_LONG).show();
+                pressedTime = System.currentTimeMillis();
+            }
+            else {
+                int seconds = (int) (System.currentTimeMillis() - pressedTime);
+
+                if ( seconds > 2000 ) {
+                    Snackbar.make(findViewById(R.id.main_layout),
+                            " 한 번 더 누르면 종료됩니다." , Snackbar.LENGTH_LONG).show();
+                    pressedTime = 0 ;
+                }
+                else {
+                    super.onBackPressed();
+                    Log.e("!!!", "onBackPressed : finish, killProcess");
+                    finish();
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                }
+            }
+        }
+    }
 }
