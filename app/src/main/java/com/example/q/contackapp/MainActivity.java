@@ -1,6 +1,7 @@
 package com.example.q.contackapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -9,6 +10,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import com.example.q.contackapp.adapters.ViewPagerAdapter;
 import com.example.q.contackapp.fragments.FragmentContacts;
@@ -52,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
         //fragmentTransaction.add(R.id.tablayout, new FragmentGallery());
 
 
+    }
+
+    public void onClick(View view) {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 
     private void askPermissions() {
