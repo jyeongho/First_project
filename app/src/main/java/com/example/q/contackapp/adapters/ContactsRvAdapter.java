@@ -64,6 +64,7 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
             contact_name = itemView.findViewById(R.id.contact_name);
             contact_number = itemView.findViewById(R.id.contact_number);
             contact_number2 = itemView.findViewById(R.id.contact_number2);
+
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
         }
@@ -73,6 +74,7 @@ public class ContactsRvAdapter extends RecyclerView.Adapter<ContactsRvAdapter.Vi
             Fragment fragment = new FragmentContactsCall();
             FragmentManager fragmentManager = ((MainActivity)mContext).getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.linear_rv, fragment).commit();
+
 
         }
     }
