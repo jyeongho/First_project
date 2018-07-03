@@ -34,8 +34,8 @@
             android:id="@+id/contact_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/contact_name"
             android:layout_alignLeft="@+id/contact_name"
+            android:layout_alignStart="@+id/contact_name"
             android:layout_below="@+id/contact_name"
             android:text="number"
             android:textColor="@android:color/white"
@@ -50,15 +50,8 @@
             android:layout_below="@+id/contact_name"
             android:text="number2"
             android:textColor="@android:color/white"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
     </RelativeLayout>
-
-    <Button
-        android:background="@drawable/ic_launcher_foreground"
-        android:layout_width="0dp"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:layout_height="32dp" />
 
 </LinearLayout>
