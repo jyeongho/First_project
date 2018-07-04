@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.Utils.BottomNavigationViewHelper;
@@ -23,11 +24,15 @@ public class ProfileActivity extends AppCompatActivity{
 
     private Context mContext = ProfileActivity.this;
 
+    private ProgressBar mProgressbar;
+
     @Override
     protected  void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         Log.d(TAG, "onCreate: started");
+        mProgressbar = (ProgressBar) findViewById(R.id.profileProgressBar);
+        mProgressbar.setVisibility(View.GONE);
 
         setupBottomNavigationView();
         setupToolbar();
