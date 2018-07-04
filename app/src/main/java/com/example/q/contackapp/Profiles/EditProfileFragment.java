@@ -29,6 +29,17 @@ public class EditProfileFragment extends Fragment {
 
         setProfileImage();
 
+        //back arrow for navigating back to "ProfileActivity"
+        ImageView backArrow = (ImageView) view.findViewById(R.id.backArrow);
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: navigating back to ProfileActivity");
+                getActivity().finish();
+            }
+        });
+
+
         return view;
     }
 

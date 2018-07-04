@@ -15,9 +15,11 @@ import com.example.q.contackapp.Login.LoginActivity;
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.Utils.BottomNavigationViewHelper;
 import com.example.q.contackapp.Utils.SectionsPagerAdapter;
+import com.example.q.contackapp.Utils.UniversalImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class HomeActivity extends AppCompatActivity{
 
@@ -39,6 +41,11 @@ public class HomeActivity extends AppCompatActivity{
 
         setupBottomNavigationView();
         setupViewPager();
+    }
+
+    private void initImageLoader(){
+        UniversalImageLoader universalImageLoader = new UniversalImageLoader(mContext);
+        ImageLoader.getInstance().init(universalImageLoader.getConfig());
     }
 
     //adds 3 tabs
