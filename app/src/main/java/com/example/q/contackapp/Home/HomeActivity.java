@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import com.example.q.contackapp.Login.LoginActivity;
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.Utils.BottomNavigationViewHelper;
+import com.example.q.contackapp.Utils.SectionsPagerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
