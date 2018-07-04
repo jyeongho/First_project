@@ -7,12 +7,12 @@ import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.q.contackapp.HomeActivity;
-import com.example.q.contackapp.LikesActivity;
-import com.example.q.contackapp.ProfileActivity;
+import com.example.q.contackapp.Home.HomeActivity;
+import com.example.q.contackapp.Likes.LikesActivity;
+import com.example.q.contackapp.Profiles.ProfileActivity;
 import com.example.q.contackapp.R;
-import com.example.q.contackapp.SearchActivity;
-import com.example.q.contackapp.ShareActivity;
+import com.example.q.contackapp.Search.SearchActivity;
+import com.example.q.contackapp.Share.ShareActivity;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class BottomNavigationViewHelper {

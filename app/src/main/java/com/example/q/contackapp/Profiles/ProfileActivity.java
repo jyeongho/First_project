@@ -1,4 +1,4 @@
-package com.example.q.contackapp;
+package com.example.q.contackapp.Profiles;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.q.contackapp.R;
 import com.example.q.contackapp.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 

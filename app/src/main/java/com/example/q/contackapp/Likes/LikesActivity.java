@@ -1,4 +1,4 @@
-package com.example.q.contackapp;
+package com.example.q.contackapp.Likes;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,15 +8,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.q.contackapp.R;
 import com.example.q.contackapp.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class ShareActivity extends AppCompatActivity{
+public class LikesActivity extends AppCompatActivity{
 
-    private static final String TAG = "ShareActivity";
-    private static final int ACTIVITY_NUM = 2;
+    private Context mContext = LikesActivity.this;
+    private static final int ACTIVITY_NUM = 3;
 
-    private Context mContext = ShareActivity.this;
+    private static final String TAG = "LikesActivity";
 
     @Override
     protected  void onCreate(@Nullable Bundle savedInstanceState) {

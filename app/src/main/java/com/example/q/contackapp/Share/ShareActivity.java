@@ -1,4 +1,4 @@
-package com.example.q.contackapp;
+package com.example.q.contackapp.Share;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,15 +8,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.q.contackapp.R;
 import com.example.q.contackapp.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
-public class SearchActivity extends AppCompatActivity{
+public class ShareActivity extends AppCompatActivity{
 
-    private static final String TAG = "SearchActivity";
-    private static final int ACTIVITY_NUM = 1;
+    private static final String TAG = "ShareActivity";
+    private static final int ACTIVITY_NUM = 2;
 
-    private Context mContext = SearchActivity.this;
+    private Context mContext = ShareActivity.this;
 
     @Override
     protected  void onCreate(@Nullable Bundle savedInstanceState) {

@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.example.q.contackapp.Home.HomeActivity;
 import com.example.q.contackapp.adapters.ViewPagerAdapter;
 import com.example.q.contackapp.fragments.FragmentContacts;
 import com.example.q.contackapp.fragments.FragmentGallery;
