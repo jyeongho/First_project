@@ -2,6 +2,7 @@ package com.example.q.contackapp.Home;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,8 @@ import android.view.MenuItem;
 
 import com.example.q.contackapp.R;
 import com.example.q.contackapp.Utils.BottomNavigationViewHelper;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class HomeActivity extends AppCompatActivity{
@@ -20,14 +23,50 @@ public class HomeActivity extends AppCompatActivity{
 
     private Context mContext = HomeActivity.this;
 
+    //firebase
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Log.d(TAG, "onCreate: starting.");
 
+        setupFirebaseAuth();
+
         setupBottomNavigationView();
         setupViewPager();
     }
+
+    private void setupFirebaseAuth() {
+        Log.d(TAG, "setupFirebaseAuth: setting up firebase auth");
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid())
+                } else {
+                    Log.d(TAG, "onAuthStateChanged:singed_out");
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
 
     //adds 3 tabs
     private void setupViewPager() {
