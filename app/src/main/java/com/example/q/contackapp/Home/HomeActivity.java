@@ -47,12 +47,12 @@ public class HomeActivity extends AppCompatActivity{
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid())
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     Log.d(TAG, "onAuthStateChanged:singed_out");
                 }
             }
-        }
+        };
     }
 
     @Override
