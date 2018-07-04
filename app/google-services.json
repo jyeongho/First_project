@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "258778838888",
+    "firebase_url": "https://instagramclone-517de.firebaseio.com",
+    "project_id": "instagramclone-517de",
+    "storage_bucket": "instagramclone-517de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258778838888:android:6f3be21238aa2bfb",
+        "android_client_info": {
+          "package_name": "com.example.q.contackapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258778838888-1sub5hnfo2lff73g8bu9q6inprmiu5f8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.q.contackapp",
+            "certificate_hash": "64ee76296f264e925d32c46dfb0828cd8dadc624"
+          }
+        },
+        {
+          "client_id": "258778838888-t0l4anano5fo6ekn4bdfeg33qkbsor39.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQsCLrK8omxvuAe6CCtUd0N0O9AGiyVI8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258778838888-t0l4anano5fo6ekn4bdfeg33qkbsor39.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
